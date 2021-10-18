@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javis.web.repository.FingerMapper">
+
+	<!-- <select id="getUserOne" resultType="User">
+		SELECT * FROM user
+		<if test="userId != null">
+			where userId = #{userId};
+		</if>
+
+	</select> -->
+
+	<!-- <update id="fingerJoin" parameterType="com.javis.web.model.Finger">
+		update finger set
+		(sensorIdx=#{sensorIdx}, behaviorOn=#{behaviorOn}, behaviorOff=#{behaviorOff})
+		where
+		(userId=#{userId})
+	</update> -->
+	
+	<update id="fingerJoin"
+		parameterType="com.javis.web.model.Finger">
+		INSERT INTO 	finger (userId, sensorIdx, behaviorOn, behaviorOff)
+		VALUES(#{userId}, #{sensorIdx}, #{behaviorOn}, #{behaviorOff}) ON DUPLICATE KEY UPDATE    
+		behaviorOn=#{behaviorOn}, behaviorOff=#{behaviorOff}
+		
+	</update>
+
+</mapper>

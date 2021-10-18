@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.javis.web.repository.FileMapper">
+
+	<select id="selectFileInfoByFno" resultType="com.javis.web.dto.FileDTO">
+		SELECT FNO, BNO, FILENAME, FILEORINAME, FILEURL
+		FROM FILES
+		WHERE FNO = #{fno}
+	</select>
+	
+	<select id="selectFileInfoByBno" resultType="com.javis.web.dto.FileDTO">
+		SELECT FNO, BNO, FILENAME, FILEORINAME, FILEURL
+		FROM FILES
+		WHERE BNO = #{bno}
+	</select>
+	
+</mapper>
