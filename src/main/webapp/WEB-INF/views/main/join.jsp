@@ -110,7 +110,7 @@ function signUp(){
                                                 <label>아이디</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="userEmail" type="email" placeholder="name@example.com" />
+                                                <input class="form-control" id="userEmail" name="userEmail" type="email" placeholder="name@example.com" />
                                                 <label for="inputEmail">Email address</label>
                                             </div>
                                             <div class="row mb-3">

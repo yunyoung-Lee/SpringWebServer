@@ -23,7 +23,18 @@
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 </style>
 <title>Javis Camera 홈페이지</title>
 </head>
@@ -36,17 +47,35 @@
 		<div id="layoutSidenav_content">
 			<main>
 			<div class="container-fluid px-4">
-				<h2 class="mt-4">손동작 등록</h2><br>
-				<a style="font-family: 'GowunBatang-Regular'; font-size: 20px;">
-				</a>
+			<div class="p-3 mb-2 bg-warning text-white"><div style = "font-family: 'ONE-Mobile-POP'; font-size:35px;">손동작 등록</div></div>
+				<br>
 				<div class="card mb-4">
 					<div class="card-header">
-						손동작 등록
+						<div style = "float: left;">
+							<i class="far fa-grin-wink"></i>&nbsp; 손동작 등록
+						</div>
+						<div style="float:right;">
+						<button class="btn btn-primary" style="font-size: 0.8em;" onclick="location.href='/mypage'">취소</button>
+						</div>
 					</div>
-					<div class="card-body" style="text-align : center;">
+					<div class="card-body"style="padding:50px;">
 					<!-- 주의사항 넣기 !!!!!!!!!!!!!!!!!!!!!!!!!-->
-						손동작 등록을 시작하시겠습니까? 
-						<button id="btn1" class="btn btn-warning"onclick="location.href='/hand2'" style="cursor:pointer;">Yes</button>
+						<div class="card text-white bg-dark mb-3" style="max-width: auto; text-align : center;">
+							  <h3 class="card-header" style="font-family: 'ONE-Mobile-POP';">주의사항</h3>
+							  <div class="card-body">
+							    <!-- <h5 class="card-title">주의사항 필독!</h5> -->
+							    <p class="card-text" style="font-family: 'GowunDodum-Regular'; font-size:20px;">센서별 ON/OFF 설정을 하십시오.<br>
+									선택한 숫자만큼의 손가락을 카메라가 인식하면 센서를 조절할 수 있습니다.<br>
+									반드시 같은 숫자가 겹치지 않도록 설정해주십시오.</p>
+							  </div>
+						</div>
+						<div style="padding-top:20px; text-align : center;  font-size:20px;">
+							<div style = " font-family: 'GowunDodum-Regular';">손동작 등록을 시작하시겠습니까? &nbsp;</div>
+							<div style = "padding-top:15px;">
+								<button id="btn1" class="btn btn-warning"onclick="location.href='/hand2'" style = "width:150px;">Yes</button>
+							</div>
+							<!-- <button id="btn1" class="btn btn-warning"onclick="location.href='/mypage'" style="cursor:pointer;">취소</button> -->
+						</div>
 					</div>
 				</div>
 			</div>
@@ -55,11 +84,5 @@
 		</div>
 
 	
-	
-	
-	<script src="assets/demo/chart-area-demo.js"></script>
-	<script src="assets/demo/chart-bar-demo.js"></script>
-	
-	<script src="js/datatables-simple-demo.js"></script>
 </body>
 </html>

@@ -33,21 +33,7 @@ public class BoardController {
     BoardSer mBoardService; //BoardMapper boardMapper;  
     
     @Autowired
-	private UserService userService;
-    
-    
-    
-//    @RequestMapping(value = "/face")
-//	public String page(Principal principal, Model model) throws Exception {
-//		String id = principal.getName();
-//
-//		UserDTO vo = userService.getUserOne(id);
-//		model.addAttribute("Id", vo.getUserId());
-//		return "/ai/face";
-//	}
-    
-    
-    
+	private UserService userService; 
     
     @RequestMapping("/list") //게시판 리스트 화면 호출  
     private String boardList(Principal principal,Model model) throws Exception{
@@ -56,7 +42,7 @@ public class BoardController {
     			model.addAttribute("Id", vo.getUserId());
         //model.addAttribute("list", mBoardService.boardListService());
         
-        return "list"; //생성할 jsp
+        return "/board/list"; //생성할 jsp
     }
     
     @RequestMapping("/detail/{bno}") 
@@ -66,7 +52,7 @@ public class BoardController {
 		model.addAttribute("Id", vo.getUserId());
 		
         model.addAttribute("bno", bno);
-        return "detail";
+        return "/board/detail";
     }
     
     @RequestMapping("/insert") //게시글 작성폼 호출  
@@ -75,7 +61,7 @@ public class BoardController {
 		UserDTO vo = userService.getUserOne(id);
 		model.addAttribute("Id", vo.getUserId());
 		
-        return "insert";
+        return "/board/insert";
     }
     
     @RequestMapping("/insertProc")
@@ -119,27 +105,19 @@ public class BoardController {
         
         return "redirect:/list";
     }
-    
-    @RequestMapping("/update/{bno}") //게시글 수정폼 호출  
-    private String boardUpdateForm(@PathVariable int bno, Model model) throws Exception{
-        
-        model.addAttribute("detail", mBoardService.boardDetailService(bno));
-        
-        return "update";
-    }
-    
-    @RequestMapping("/updateProc")
-    private String boardUpdateProc(HttpServletRequest request) throws Exception{
-        
-        BoardDTO board = new BoardDTO();
-        board.setSubject(request.getParameter("subject"));
-        board.setContent(request.getParameter("content"));
-        board.setBno(Integer.parseInt(request.getParameter("bno")));
-        
-        mBoardService.boardUpdateService(board);
-        
-        return "redirect:/detail/"+request.getParameter("bno"); 
-    }
+ 
+//    @RequestMapping("/updateProc")
+//    private String boardUpdateProc(HttpServletRequest request) throws Exception{
+//        
+//        BoardDTO board = new BoardDTO();
+//        board.setSubject(request.getParameter("subject"));
+//        board.setContent(request.getParameter("content"));
+//        board.setBno(Integer.parseInt(request.getParameter("bno")));
+//        
+//        mBoardService.boardUpdateService(board);
+//        
+//        return "redirect:/detail/"+request.getParameter("bno"); 
+//    }
     
     @RequestMapping("/delete/{bno}")
     private String boardDelete(@PathVariable int bno) throws Exception{

@@ -94,54 +94,23 @@
 				 	"json");
 		
 	}
-
-	/* $function(){
-		$('input[type="radio"][id="led1_On_2"]').on('click', function(){
-			alert("선택");
-			var chkValue = $('input[type=radio][id="led1_On_1"]:checked').val();
-			  if(chkValue){
-			             $('#test2').css('display','none');
-			  }else{
-			             $('#test2').css('display','display-block');
-			  }
-		})
-	} */
-
-
-// getter
-/* let radioVal1 = $('input[name="led_on"]:checked').val();
-let radioVal2 = $('input[name="led_off"]:checked').val();
-let radioVal3 = $('input[name="led2_on"]:checked').val();
-let radioVal4 = $('input[name="led2_off"]:checked').val(); */
-/* alert(radioVal1);
-alert(radioVal2);
-alert(radioVal3);
-alert(radioVal4);*/
-
-/* function signUp(){
-	var jsonObj = JSON.stringify($("#radioButton").serializeObject());
-	
-	let radioVal1 = $('input[name="led_on"]:checked').val();
-    let radioVal2 = $('input[name="led_off"]:checked').val();
-    let radioVal3 = $('input[name="led2_on"]:checked').val();
-    let radioVal4 = $('input[name="led2_off"]:checked').val();
-    
-	$.post("/ajax/join", 
-			$( "#radioButton" ).serialize(),
-		      function(data){
-				if (data.code == 0)
-					location.href = "/login";
-				else if (data.code == 1) {
-					alert("회원가입 실패했습니다!");	
-				}
-		      }, "json");
-	
-} */
 </script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'HSYuji-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSYuji-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 </style>
 <title>Javis Camera 홈페이지</title>
 </head>
@@ -154,9 +123,7 @@ alert(radioVal4);*/
 		<div id="layoutSidenav_content">
 			<main>
 			<div class="container-fluid px-4">
-				<h2 class="mt-4">손동작 등록</h2><br>
-				<a style="font-family: 'GowunBatang-Regular'; font-size: 20px;">
-				</a>
+				<div class="p-3 mb-2 bg-warning text-white"><div style = "font-family: 'ONE-Mobile-POP'; font-size:35px;">손동작 등록</div></div>
 				<div class="card mb-4">
 					<div class="card-header">
 						<div style = "float: left;">
@@ -168,10 +135,10 @@ alert(radioVal4);*/
 					</div>
 					<div class="card-body"style="padding:50px;">
 					<!-- 주의사항 넣기 !!!!!!!!!!!!!!!!!!!!!!!!!-->
-					<form name="radioform">
-					<div class = "LED1">
+					<form name="radioform" style = "text-align:center;">
+					<div class = "LED1_on" style = "padding-bottom:20px;">
 						<div class = "Button1_Name">
-							<h3>LED 1 On</h3>
+							<h5 style="font-family: 'HSYuji-Regular';">LED 1 On</h5>
 				  		</div>
 				  		<div class="btn-group btn-group-toggle" data-toggle="buttons">
 					  		<label class="btn btn-dark active">
@@ -190,9 +157,10 @@ alert(radioVal4);*/
 					    		<input type="radio" name="led_on" id="led1_On_5" autocomplete="off" value="5"> 5
 					  		</label>
 						</div>
-						
+					</div>
+					<div class = "LED1_on" style = "padding-bottom:20px;">
 						<div class = "Button1_Name">
-							<h3>LED 1 Off</h3>
+							<h5 style="font-family: 'HSYuji-Regular';">LED 1 Off</h5>
 				  		</div>
 				  		<div class="btn-group btn-group-toggle" data-toggle="buttons">
 					  		<label class="btn btn-dark active">
@@ -212,9 +180,9 @@ alert(radioVal4);*/
 					  		</label>
 						</div>											
 					</div>
-					<div class = "LED2" style = "padding-top:20px;">
+					<div class = "LED2_on" style = "padding-bottom:20px;">
 						<div class = "Button2_Name">
-							<h3>LED 2 On</h3>
+							<h5 style="font-family: 'HSYuji-Regular';">LED 2 On</h5>
 					  	</div>
 					  	<div class="btn-group btn-group-toggle" data-toggle="buttons">
 						  	<label class="btn btn-dark active">
@@ -233,9 +201,10 @@ alert(radioVal4);*/
 						    	<input type="radio" name="led2_on" id="led2_On_5" autocomplete="off" value="5"> 5
 						  	</label>
 						</div>
-						
+					</div>
+					<div class = "LED2_off" style = "padding-bottom:20px;">
 						<div class = "Button2_Name">
-							<h3>LED 2 Off</h3>
+							<h5 style="font-family: 'HSYuji-Regular';">LED 2 Off</h5>
 					  	</div>
 					  	<div class="btn-group btn-group-toggle" data-toggle="buttons">
 						  	<label class="btn btn-dark active">
@@ -257,7 +226,7 @@ alert(radioVal4);*/
 					</div>
 					</form>	
 					
-					<div style = "padding-top:20px;">
+					<div style = "text-align:center;">
 						<button type="button" id="radioButton" class="btn btn-dark">등록 완료</button>	
 					</div>
 						

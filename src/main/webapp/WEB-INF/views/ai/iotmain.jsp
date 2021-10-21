@@ -63,7 +63,7 @@ function bulb1_Off() { //LED_1_OFF
 function bulb2_On() { //LED_2_ON
 	//img 요소의 src속성을 변경
 	var img = document.getElementById("img_bulb2");	
-	img.src="/images/iot_on2.png";
+	img.src="/images/iot_on_2.png";
 	
 		
 	//불 켜고나면 on 버튼 비활성화
@@ -175,19 +175,22 @@ $(document).ready(function () { //led 1번 상태 유지
 				<div class="card-body" style="text-align : center;">
 					
 					<div class="button1" style = "padding-bottom:40px;">
-						<img src="/images/iot_off.png" alt="" id="img_bulb" style = "width: 150px;. height:auto;"/>
+						<h3 style = "font-family: 'HSSaemaul-Regular'; color:white;">LED 1</h3>
+						<img src="/images/iot_off.png" id="img_bulb" style = "width: 150px;. height:auto;"/>
 						<br>
 						<div>
 							<button id="btn1_On" class="btn btn-warning" onclick="bulb1_On()" style = "padding-right:10px;">Turn On</button>
 							<button id="btn1_Off" class="btn btn-light" onclick="bulb1_Off()">Turn Off</button>
 						</div>
 				
-					<div class="button2">
-						<img src="/images/iot_off2.png" alt="" id="img_bulb2" style = "width: 150px;. height:auto;"/>
+					<div class="button2" style = "padding-top:40px;">
+						<h3 style = "font-family: 'HSSaemaul-Regular'; color:white;">LED 2</h3>
+						<img src="/images/iot_off2.png" id="img_bulb2" style = "width: 150px;. height:auto;"/>
 						<br>
 						<button id="btn2_On" class="btn btn-warning" onclick="bulb2_On()" style = "padding-right:10px;">Turn On</button>
 						<button id="btn2_Off" class="btn btn-light" onclick="bulb2_Off()">Turn Off</button>
 					</div>
+				</div>
 				</div>
 				</div>
 			</main>

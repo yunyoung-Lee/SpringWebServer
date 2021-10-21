@@ -57,7 +57,7 @@
 					
 					
 					<!-- 여기부터 -->
-						<div class="card" style="width: 18rem; padding-top:20px; text-align : center; margin:0 auto">
+						<div class="card border-success mb-3" style="max-width: 18rem; padding-top:20px; text-align : center; margin:0 auto">
 							<img class="card-img-top" src="/images/mypage_picture.jpg" alt="Card image cap">
 							
 							<div class="card-body">
@@ -74,12 +74,14 @@
 						<!-- 버튼 -->
 						<div class="card-body2"style="padding-top:20px; text-align : center;">
 							<div class = "goface" onclick="location.href='/face'" style="cursor:pointer;">
-								<img src="/images/face.jpg" class="card-img-top"style = "padding-top: 10px; width:100px; height:auto;" alt="인물 등록">
-								<h5 class="card-title" style = "padding-top:10px">얼굴 인식</h5>
+								<img src="/images/face_off.png" class="card-img-top"style = "padding-top: 10px; width:100px; height:auto;" alt="인물 등록"
+								onmouseover="this.src='/images/face_on.png'" onmouseout="this.src='/images/face_off.png'">
+								<h5 class="card-title" style = "padding-top:10px; font-family: 'ONE-Mobile-POP';">얼굴 인식</h5>
 							</div>
 							<div class = "gohand" onclick="location.href='/hand'" style="cursor:pointer;">	
-								<img src="/images/hand.jpg" class="card-img-top"style = "padding-top: 20px; width:100px; height:auto;" alt="손동작 등록">
-							  	<h5 class="card-title" style = "padding-top:10px">손동작 인식</h5>
+								<img src="/images/hand_off.png" class="card-img-top"style = "padding-top: 20px; width:100px; height:auto;" alt="손동작 등록"
+								onmouseover="this.src='/images/hand_on.png'" onmouseout="this.src='/images/hand_off.png'">
+							  	<h5 class="card-title" style = "padding-top:10px; font-family: 'ONE-Mobile-POP';">손동작 인식</h5>
 						  	</div>
 						</div><!-- 여기까지 -->
 						

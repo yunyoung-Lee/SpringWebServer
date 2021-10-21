@@ -60,7 +60,7 @@ public class FileServiceImpl implements FileService {
 					if (disposition != null) { //null이 아닐 때
 						int index = disposition.indexOf("filename=");//filename=을 index에 넣는다.
 						if (index > -1) { //filename이 있을경우 
-							fileName = disposition.substring(index + 10, //문자열 자르기
+							fileName = disposition.substring(index + 9, //문자열 자르기
 									disposition.length());
 						}
 						//System.out.println(disposition.toString());
@@ -112,26 +112,26 @@ public class FileServiceImpl implements FileService {
 
 	public void PostURL(String url, String fullPath) { 
 		try {  
-			String fileName="C://Temp//abc.mp4";
+			//String fileName="C://Temp//abc.mp4";
 			File file = new File(fullPath);
 		    HttpEntity entity = MultipartEntityBuilder.create()
 		    		.addPart("video", new FileBody(file))
 //		    		.addTextBody("video", "abc.mp4")
 		    .build();
-		    
 		    //HttpPost request = new HttpPost("http://192.168.30.30:5000/upload/3/");
-		    
 			 HttpPost request = new HttpPost(url);
 			 request.setEntity(entity);
 			
 			 HttpClient client = HttpClientBuilder.create().build();
 			 HttpResponse response = client.execute(request);
 			 System.out.println("reponse = "+response);
+			 
 		} catch (Exception e){
 			e.printStackTrace();
 		}
 	}
 
+	
 	@Override
 	public FileDTO fileDownload(String fno) throws Exception {
 		return fileMapper.selectFileInfoByFno(fno);

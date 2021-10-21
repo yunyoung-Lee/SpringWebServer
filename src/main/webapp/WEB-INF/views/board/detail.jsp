@@ -44,7 +44,7 @@ function setElement(data) {
 	$("#detailSubjectId").html(data.board.subject);
 	$("#detailWriterId").html(data.board.writer);
 	$("#detailRegDateStrId").html(data.board.regDateStr);
-	var x = data.board.content.replace(/\n/gi, '<br>');
+	var x = data.board.content.replace(/\n/gi, '<br>'); //줄바꿈 해준다.
 	$("#detailContentId").html(x);
 	$("#fileLink").html("<a href='/fileDownload/"+data.file.fno+"'>"+data.file.fileOriName+"</a>");
 }

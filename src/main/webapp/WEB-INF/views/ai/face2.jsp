@@ -20,6 +20,10 @@
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../script/sb.admin.scripts.js"></script>
 <script type="text/javascript">
+function message(){
+	alert("잠시만 기다려주십시오.");
+}
+
 function goMedia(){
 	
 	$.ajax({
@@ -27,7 +31,7 @@ function goMedia(){
 		url : "/ajax/createMovie",
 		type:'POST',
 		success:function(data){
-			$("#realTimeImage").attr("src","/resources/images/mg_stream.jpg?time="+new Date().getTime())
+			$("#realTimeImage").attr("src","/resources/videos/userVideo.mp4?time="+new Date().getTime())
 		}
 		
 	})
@@ -40,15 +44,24 @@ function sendMedia(){
 			url : "/ajax/sendMovie",
 			type:'POST',
 			success:function(data){
-				$("#realTimeImage").attr("src","/resources/images/recording_face.mp4?time="+new Date().getTime())
-			}
-			
+				$("#realTimeImage").attr("src","/resources/videos/userVideo.mp4?time="+new Date().getTime())
+				alert("등록이 완료 되었습니다.");
+				location.href = "/mypage";
+			},
+			error:function(request,status,error){
+		        alert("등록이 실패되었습니다."); // 실패 시 처리
+		       }
 		})
 	}
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 </style>
 <title>Javis Camera 홈페이지</title>
 </head>
@@ -60,13 +73,11 @@ function sendMedia(){
 		<div id="layoutSidenav_content">
 			<main>
 			<div class="container-fluid px-4">
-				<h2 class="mt-4">인물 등록</h2><br>
-				<a style="font-family: 'GowunBatang-Regular'; font-size: 20px;">
-				</a>
+				<div class="p-3 mb-2 bg-warning text-white"><div style = "font-family: 'ONE-Mobile-POP'; font-size:35px;">얼굴 등록</div></div>
 				<div class="card mb-4">
 					<div class="card-header">
 						<div style = "float: left;">
-							<i class="fa fa-spinner fa-spin fa-fw"></i></i>&nbsp;인물 등록 중입니다.
+							<i class="fa fa-spinner fa-spin fa-fw"></i></i>&nbsp;얼굴 등록 중입니다.
 						</div>
 						<div style="float:right;">
 						<button class="btn btn-primary" style="font-size: 0.7em;" onclick="location.href='/mypage'">취소</button>
@@ -75,11 +86,14 @@ function sendMedia(){
 					<div class="card-body" style="text-align : center;">
 					<!-- 주의사항 넣기 !!!!!!!!!!!!!!!!!!!!!!!!!-->
 					<div style="padding:10px;">
-							<img id="realTimeImage" class="profile" style="width:800px; height:auto;" src="/resources/images/mg_stream.jpg">
+							 <video id="realTimeImage" controls src="/resources/videos/userVideo.mp4" width='900' height='470'>
+						        not use video
+						    </video>
+							<!-- <img id="realTimeImage" class="profile" style="width:800px; height:auto;" src="/resources/images/mg_stream.jpg"> -->
 					</div>
 					<div style="padding:10px;">
 						<button type="button" onclick="goMedia()" class="btn btn-dark">Receive</button> &nbsp;
-						<button type="button" onclick="sendMedia()" class="btn btn-dark">&nbsp; Send &nbsp;</button>
+						<button type="button" onclick="sendMedia(); message();" class="btn btn-dark">&nbsp; Send &nbsp;</button>
 					</div>	
 					</div>
 				</div>
@@ -87,39 +101,6 @@ function sendMedia(){
 			</main>
 			<%@ include file="/WEB-INF/views/layout/footer.jsp" %> <!-- footer.jsp 불러오기 -->
 		</div>
-		
-		
-		
-		
-		
-		
-		<%-- <div id="layoutSidenav_content">
-			<main>
-			<div class="container-fluid px-4">
-				<h2 class="mt-4">인물 등록</h2><br>
-				<a style="font-family: 'GowunBatang-Regular'; font-size: 20px;">
-				</a>
-				<div class="card mb-4">
-					<div class="card-header">
-						<i class="fa fa-spinner fa-spin fa-fw"></i></i>&nbsp;인물 등록 중입니다.
-					</div>
-					<div class="card-body" style="text-align : center;">
-					<!-- 주의사항 넣기 https://getbootstrap.com/docs/4.0/components/collapse/-->
-					
-					<script src="/script/camera.js"></script>
-					</div>
-				</div>
-			</div>
-			</main>
-			<%@ include file="/WEB-INF/views/layout/footer.jsp" %> <!-- footer.jsp 불러오기 -->
-		</div> --%>
-
 	
-	
-	
-	<script src="assets/demo/chart-area-demo.js"></script>
-	<script src="assets/demo/chart-bar-demo.js"></script>
-	
-	<script src="js/datatables-simple-demo.js"></script>
 </body>
 </html>

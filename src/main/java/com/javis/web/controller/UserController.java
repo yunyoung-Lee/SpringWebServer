@@ -56,15 +56,7 @@ public class UserController {
 		model.addAttribute("Id", vo.getUserId());
 		return "/ai/hand2";
 	}
-	
-	@RequestMapping(value = "/lookup")
-	public String page5(Principal principal, Model model) throws Exception {
-		String id = principal.getName();
 
-		UserDTO vo = userService.getUserOne(id);
-		model.addAttribute("Id", vo.getUserId());
-		return "/ai/lookup";
-	}
 	
 	
 

@@ -68,14 +68,18 @@ public class FingerServiceImpl implements FingerService {
 					if (sensorIdx == 1) {
 						if (signal == true) {
 							sendHttpGet(JavisUrl.IOT_URL + JavisUrl.IOT_LED_ON);
+							System.out.println("led1on");
 						} else if (signal == false) {
 							sendHttpGet(JavisUrl.IOT_URL + JavisUrl.IOT_LED_OFF);
+							System.out.println("led1off");
 						}
 					} else if (sensorIdx == 2) {
 						if (signal == true) {
 							sendHttpGet(JavisUrl.IOT_URL + JavisUrl.IOT_LED2_ON);
+							System.out.println("led2on");
 						} else if (signal == false) {
 							sendHttpGet(JavisUrl.IOT_URL + JavisUrl.IOT_LED2_OFF);
+							System.out.println("led2off");
 						}
 					}
 					

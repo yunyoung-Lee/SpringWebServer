@@ -33,14 +33,14 @@ public class FileController {
 	@Autowired
 	ServletContext servletContext;
 	
-	@RequestMapping(value = "/ajax/createMovie", method = RequestMethod.POST) //Iot 서버에서 영상 받기
+	@RequestMapping(value = "/ajax/createMovie", method = {RequestMethod.GET, RequestMethod.POST}) //Iot 서버에서 영상 받기
 	public ResponseEntity<Object> createMovie() {
 		
 		ResponseData resData = new ResponseData();
 		
 		try {
-			URL url = new URL(JavisUrl.IOT_URL + JavisUrl.IOT_GET_IMAGE);
-			String dir = servletContext.getRealPath("resources/images");
+			URL url = new URL(JavisUrl.IOT_URL + JavisUrl.IOT_GET_VIDEO);
+			String dir = servletContext.getRealPath("resources/videos");
 			fileService.downloadToDir(url,	new File(dir));
 			return new ResponseEntity<Object>(resData, HttpStatus.OK);
 		} catch (Exception e) {
@@ -57,10 +57,10 @@ public class FileController {
 		ResponseData resData = new ResponseData();
 		
 		try {
-			String dir = servletContext.getRealPath("resources/images") + "//mg_stream.jpg";
-			//fileService.PostURL("http://192.168.30.30:5000/add_face/userId/",dir);
-			fileService.PostURL(JavisUrl.AI_URL + JavisUrl.AI_URL_IMAGE_UPLOAD + "/3/",dir);
+			String dir = servletContext.getRealPath("resources/videos") + "/userVideo.mp4";
+			fileService.PostURL(JavisUrl.AI_URL + JavisUrl.AI_URL_IMAGE_UPLOAD + "/3",dir);
 			return new ResponseEntity<Object>(resData, HttpStatus.OK);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			resData.setCode(false);

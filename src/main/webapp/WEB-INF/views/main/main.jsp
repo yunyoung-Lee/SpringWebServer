@@ -21,10 +21,10 @@
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../script/sb.admin.scripts.js"></script>
 <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script> -->
-<script src="http://192.168.30.29:3000/socket.io/socket.io.js"></script>
+<script src="http://172.20.10.11:3000/socket.io/socket.io.js"></script>
 <script type="text/javascript">
 
-	var socket = io.connect("http://192.168.30.29:3000/");
+	var socket = io.connect("http://172.20.10.11:3000");
 	socket.emit("start-stream");
 
 	socket.on("liveStream", function (url) {
@@ -60,7 +60,7 @@
 					<div class="card-body" style="text-align : center;">
 						<!-- <img width="640" height="480" src="" id="stream" /> -->
 						<br><br>
-						<img width="900" height="470" src="" id="stream" />
+						<img width="1100" height="570" src="" id="stream" />
 						<!-- <div style="padding:10px;">
 							<img id="realTimeImage" class="profile" style="width:800px; height:auto;" src="/resources/images/mg_stream.jpg">
 						</div>
